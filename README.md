@@ -1,4 +1,4 @@
-# वाक्-शेल (Vaak-Shell) 🕉️⚡
+# वाक्-शेल (Vaak-Shell) ॐ ⚡
 
 > **टर्मक्स एवं लिनक्स हेतु हिंदुस्तानी/हिंदी संप्रभु शेल व कमांड लाइन इंटरफ़ेस**  
 > *Sovereign Hindustani & Hindi Command-Line Layer for Linux & Termux*
