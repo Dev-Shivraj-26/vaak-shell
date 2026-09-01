@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # ==============================================================================
 # परियोजना : वाक्-शेल (Vaak-Shell)
-# विवरण   : लिनक्स एवं टर्मक्स हेतु देवनागरी संप्रभु कमांड लाइन इंटरफ़ेस
+# विवरण   : लिनक्स एवं टर्मक्स हेतु देवनागरी कमांड लाइन इंटरफ़ेस
 # ==============================================================================
 
-# यूनीकोड एवं भाषा विन्यास
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+# यूनीकोड विन्यास (टर्मक्स व लिनक्स दोनों में सुरक्षित)
+export LANG=C.UTF-8
+export LC_ALL=C.UTF-8
 
 # ------------------------------------------------------------------------------
 # १. संचिका एवं संदर्शिका प्रबंधन (File & Directory Operations)
@@ -33,7 +33,8 @@ alias बंद="exit"
     cd "$1" && ls --color=auto
 }
 alias पीछे="cd .. && ls --color=auto"
-# स्मार्ट संदर्भ-आधारित मिटाओ फलन (Clear Screen या Delete File)
+
+# स्मार्ट स्क्रीन साफ़ या फ़ाइल विलोपन
 मिटाओ() {
     if [ $# -eq 0 ]; then
         clear
@@ -41,6 +42,7 @@ alias पीछे="cd .. && ls --color=auto"
         rm -ri "$@"
     fi
 }
+
 # ------------------------------------------------------------------------------
 # २. नेटवर्क एवं डाउनलोड प्रबंधन (Network & Retrieval)
 # ------------------------------------------------------------------------------
@@ -75,12 +77,47 @@ alias पूर्ण_अनुमति="chmod 777"
 alias स्वामी_बदलो="chown -R"
 
 # ------------------------------------------------------------------------------
-# ६. पैकेज प्रबंधन (Package Management)
+# ६. पैकेज प्रबंधन (टर्मक्स + लिनक्स दोनों के लिए स्मार्ट फलन)
 # ------------------------------------------------------------------------------
-alias अद्यतन="pkg update && pkg upgrade -y"
-alias स्थापित_करो="pkg install -y"
-alias निष्कासित_करो="pkg uninstall -y"
-alias ढूँढो_पैकेज="pkg search"
+अद्यतन() {
+    if command -v pkg &> /dev/null; then
+        pkg update && pkg upgrade -y
+    elif command -v apt &> /dev/null; then
+        sudo apt update && sudo apt upgrade -y
+    elif command -v pacman &> /dev/null; then
+        sudo pacman -Syu --noconfirm
+    fi
+}
+
+स्थापित_करो() {
+    if command -v pkg &> /dev/null; then
+        pkg install -y "$@"
+    elif command -v apt &> /dev/null; then
+        sudo apt install -y "$@"
+    elif command -v pacman &> /dev/null; then
+        sudo pacman -S --noconfirm "$@"
+    fi
+}
+
+निष्कासित_करो() {
+    if command -v pkg &> /dev/null; then
+        pkg uninstall -y "$@"
+    elif command -v apt &> /dev/null; then
+        sudo apt remove -y "$@"
+    elif command -v pacman &> /dev/null; then
+        sudo pacman -R --noconfirm "$@"
+    fi
+}
+
+ढूँढो_पैकेज() {
+    if command -v pkg &> /dev/null; then
+        pkg search "$@"
+    elif command -v apt &> /dev/null; then
+        apt search "$@"
+    elif command -v pacman &> /dev/null; then
+        pacman -Ss "$@"
+    fi
+}
 
 # ------------------------------------------------------------------------------
 # ७. गिट संस्करण नियंत्रण (Git Sovereign Stack)
@@ -89,12 +126,16 @@ alias गिट_आरंभ="git init"
 alias गिट_क्लोन="git clone"
 alias गिट_स्थिति="git status"
 alias गिट_जोड़ो="git add ."
-alias गिट_प्रतिबद्ध="git commit -m"
 alias गिट_खींचो="git pull"
 alias गिट_भेजो="git push"
 alias गिट_इतिहास="git log --oneline --graph --decorate"
 alias गिट_शाखा="git branch"
 alias गिट_बदलो="git checkout"
+
+# बिना कोट्स के स्पेस वाला मैसेज सपोर्ट करने वाला कमिट फलन
+गिट_प्रतिबद्ध() {
+    git commit -m "$*"
+}
 
 # ------------------------------------------------------------------------------
 # ८. वाक्-शेल सहायता प्रणाली (Help Menu)
@@ -121,14 +162,15 @@ cat << 'EOF'
   डिस्क_स्थान      : डिस्क स्थान (df -h)
   डाउनलोड <URL>    : संचिका डाउनलोड करना (curl)
   जाल_जाँच         : इंटरनेट कनेक्टिविटी परीक्षण (ping)
-  अद्यतन           : टूल्स अद्यतन करना (pkg update)
-  स्थापित_करो      : पैकेज संस्थापित करना (pkg install)
+  अद्यतन           : सिस्टम व टूल्स अद्यतन करना
+  स्थापित_करो      : पैकेज संस्थापित करना (pkg / apt install)
+  निष्कासित_करो    : पैकेज हटाना (pkg uninstall / apt remove)
   साफ़             : टर्मिनल स्क्रीन साफ़ करना (clear)
 
- [गिट (Git) संप्रभु स्टैक]
+ [गिट (Git) संस्करण नियंत्रण]
   गिट_स्थिति       : कार्यक्षेत्र की स्थिति (git status)
   गिट_जोड़ो        : स्टेजिंग में जोड़ना (git add .)
-  गिट_प्रतिबद्ध    : संदेश सहित कमिट (git commit -m)
+  गिट_प्रतिबद्ध    : संदेश सहित कमिट (git commit -m "संदेश")
   गिट_खींचो        : रिमोट से कोड खींचना (git pull)
   गिट_भेजो         : रिमोट पर कोड प्रेषित करना (git push)
 ====================================================================
