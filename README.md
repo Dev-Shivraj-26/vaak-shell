@@ -25,17 +25,25 @@
 
 ```bash
 curl -fsSL [https://raw.githubusercontent.com/Dev-Shivraj-26/vaak-shell/main/install.sh](https://raw.githubusercontent.com/Dev-Shivraj-26/vaak-shell/main/install.sh) | bash
-
+```
 विधि २: गिट क्लोन द्वारा संस्थापन (वैकल्पिक / Fallback)
 यदि curl में कोई समस्या आए या आप स्रोत कोड देखना चाहें:
-git clone [https://github.com/Dev-Shivraj-26/vaak-shell.git](https://github.com/Dev-Shivraj-26/vaak-shell.git)
+```
+git clone https://github.com/Dev-Shivraj-26/vaak-shell.git
+```
+```
+https://github.com/Dev-Shivraj-26/vaak-shell.git
+```
+```
 cd vaak-shell
 bash install.sh
+```
 
 ⚙️ सक्रियण एवं उपयोग (Activation)
 संस्थापन पूरा होने के बाद परिवर्तनों को तुरंत लागू करने हेतु यह चलाएँ:
+```
 source ~/.bashrc
-
+```
 सभी उपलब्ध कमांड्स की सूची देखने के लिए टर्मिनल में सीधे मदद टाइप करें:
 मदद
 
@@ -93,11 +101,16 @@ source ~/.bashrc
 | शाखाओं (Branches) की सूची देखना | गिट_शाखा | git branch |
 🛠️ निष्कासन (Uninstallation)
 यदि आप वाक्-शेल को हटाकर अपने सिस्टम को पूर्ववत करना चाहते हैं:
-curl -fsSL [https://raw.githubusercontent.com/Dev-Shivraj-26/vaak-shell/main/uninstall.sh](https://raw.githubusercontent.com/Dev-Shivraj-26/vaak-shell/main/uninstall.sh) | bash
-
+```
+curl -fsSL https://raw.githubusercontent.com/Dev-Shivraj-26/vaak-shell/main/uninstall.sh
+```
+```
+curl -fsSL https://raw.githubusercontent.com/Dev-Shivraj-26/vaak-shell/main/uninstall.sh | bash
+```
 निष्कासन के उपरांत यह चलाएँ:
+```
 source ~/.bashrc
-
+```
 📜 रचनाकार, श्रेय एवं लाइसेंस (Author, Attribution & License)
  * मूल रचनाकार एवं परिकल्पना: शिवसागर सिंह राजावत (लघु नाम: शिवराज) | गिटहब: @Dev-Shivraj-26
  * अनिवार्य श्रेय (Attribution Required): इस कोड, परियोजना अथवा इसकी किसी भी व्युत्पन्न (Derivative) कृति का उपयोग करने पर मूल रचनाकार (शिवसागर सिंह राजावत) और इस आधिकारिक रिपॉजिटरी का स्पष्ट संदर्भ व श्रेय बनाए रखना अनिवार्य है।
