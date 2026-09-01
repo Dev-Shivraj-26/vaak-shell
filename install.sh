@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
-# ==============================================================================
-# वाक्-शेल (Vaak-Shell) स्वचालित संस्थापन स्क्रिप्ट
-# ==============================================================================
-
 set -e
 
 echo "[+] वाक्-शेल (Vaak-Shell) संस्थापन आरंभ हो रहा है..."
@@ -10,25 +6,21 @@ echo "[+] वाक्-शेल (Vaak-Shell) संस्थापन आरं
 VAAK_DIR="$HOME/.vaak-shell"
 mkdir -p "$VAAK_DIR"
 
-# नवीनतम vaak.bash डाउनलोड अथवा स्थानीय प्रतिलिपि
-if [ -f "vaak.bash" ]; then
-    cp vaak.bash "$VAAK_DIR/vaak.bash"
-else
-    curl -fsSL https://raw.githubusercontent.com/Shivsagar-singh-rajawat/vaak-shell/main/vaak.bash -o "$VAAK_DIR/vaak.bash"
+# १. अनिवार्य रूप से खाली .bashrc का निर्माण
+touch "$HOME/.bashrc"
+
+# २. मुख्य शेल स्क्रिप्ट डाउनलोड करना
+curl -fsSL https://raw.githubusercontent.com/Dev-Shivraj-26/vaak-shell/main/vaak.bash -o "$VAAK_DIR/vaak.bash"
+
+# ३. .bashrc में वाक्-शेल जोड़ना (यदि पहले से न हो)
+if ! grep -q "vaak.bash" "$HOME/.bashrc" 2>/dev/null; then
+    echo -e "\n# --- वाक्-शेल (Vaak-Shell) ---\nif [ -f \"$VAAK_DIR/vaak.bash\" ]; then\n    source \"$VAAK_DIR/vaak.bash\"\nfi" >> "$HOME/.bashrc"
 fi
 
-# .bashrc में विन्यास जोड़ना
-if ! grep -q "source $VAAK_DIR/vaak.bash" "$HOME/.bashrc" 2>/dev/null; then
-    cat << 'EOF' >> "$HOME/.bashrc"
-
-# --- वाक्-शेल (Vaak-Shell) एकीकरण ---
-if [ -f "$HOME/.vaak-shell/vaak.bash" ]; then
-    source "$HOME/.vaak-shell/vaak.bash"
-fi
-EOF
-fi
+# ४. संस्थापन के तुरंत बाद इसी समय बैकग्राउंड में एक्टिवेट करना
+source "$HOME/.bashrc" 2>/dev/null || true
 
 echo ""
-echo "[✓] वाक्-शेल (Vaak-Shell) सफलतापूर्वक संस्थापित हो गया है!"
-echo "[*] नए कमांड्स तुरंत सक्रिय करने हेतु यह चलाएँ: source ~/.bashrc"
-echo "[*] कमांड्स की सूची देखने हेतु 'मदद' टाइप करें।"
+echo "[✓] वाक्-शेल (Vaak-Shell) सफलतापूर्वक स्थापित हो गया है!"
+echo "[*] नए कमांड्स सक्रिय करने हेतु टर्मिनल को रीस्टार्ट करें या चलाएँ: source ~/.bashrc"
+echo "[*] सहायता हेतु 'मदद' टाइप करें।"
