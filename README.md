@@ -24,7 +24,11 @@
 टर्मिनल में यह कमांड चलाएँ:
 
 ```bash
-curl -fsSL [https://raw.githubusercontent.com/Dev-Shivraj-26/vaak-shell/main/install.sh](https://raw.githubusercontent.com/Dev-Shivraj-26/vaak-shell/main/install.sh) | bash
+curl -fsSL https://raw.githubusercontent.com/Dev-Shivraj-26/vaak-shell/main/install.sh
+
+```
+```
+https://raw.githubusercontent.com/Dev-Shivraj-26/vaak-shell/main/install.sh) | bash
 ```
 विधि २: गिट क्लोन द्वारा संस्थापन (वैकल्पिक / Fallback)
 यदि curl में कोई समस्या आए या आप स्रोत कोड देखना चाहें:
@@ -36,6 +40,8 @@ https://github.com/Dev-Shivraj-26/vaak-shell.git
 ```
 ```
 cd vaak-shell
+```
+```
 bash install.sh
 ```
 
