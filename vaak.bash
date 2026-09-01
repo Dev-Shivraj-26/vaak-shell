@@ -25,6 +25,8 @@ alias शीर्ष="head -n 20"
 alias अंत="tail -n 20"
 alias खोजो_फ़ाइल="find . -name"
 alias खोजो_शब्द="grep -rnw . -e"
+alias बाहर="exit"
+alias बंद="exit"
 
 # संदर्शिका नेविगेशन फलन
 जाओ() {
