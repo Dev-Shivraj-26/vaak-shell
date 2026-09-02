@@ -1,23 +1,20 @@
 # वाक्-शेल (Vaak-Shell) ॐ ⚡
 
-> **लिनक्स एवं टर्मक्स हेतु द्विस्तरीय (शुद्ध तत्सम मूल एवं हिंदुस्तानी उपनाम) संप्रभु कमांड लाइन इंटरफ़ेस**[span_0](start_span)[span_0](end_span)[span_1](start_span)[span_1](end_span)  
-> *Sovereign Dual-Layer Command-Line Interface for Linux & Termux*[span_2](start_span)[span_2](end_span)
-
-[![License: Custom Sovereign](https://img.shields.io/badge/License-Vaak--Sovereign-blue.svg)](LICENSE)[span_3](start_span)[span_3](end_span)
-[![Platform: Linux / Termux](https://img.shields.io/badge/Platform-Termux%20%7C%20Linux-green.svg)](https://termux.dev)[span_4](start_span)[span_4](end_span)
+> **लिनक्स एवं टर्मक्स हेतु द्विस्तरीय (शुद्ध तत्सम मूल एवं हिंदुस्तानी उपनाम) संप्रभु कमांड लाइन इंटरफ़ेस**
+> *Sovereign Dual-Layer Command-Line Interface for Linux & Termux*
+[![License: Custom Sovereign](https://img.shields.io/badge/License-Vaak--Sovereign-blue.svg)](LICENSE)
+[![Platform: Linux / Termux](https://img.shields.io/badge/Platform-Termux%20%7C%20Linux-green.svg)](https://termux.dev)[span_4]
 
 ---
 
 ## 📌 परिचय (Introduction)
 
-**वाक्-शेल (Vaak-Shell)** का उद्देश्य टर्मिनल और कंप्यूटिंग को आम जनमानस और नए विद्यार्थियों के लिए अत्यंत सरल व स्वाभाविक बनाना है[span_5](start_span)[span_5](end_span)। 
+**वाक्-शेल (Vaak-Shell)** का उद्देश्य टर्मिनल और कंप्यूटिंग को आम जनमानस और नए विद्यार्थियों के लिए अत्यंत सरल व स्वाभाविक बनाना है
 
-अक्सर नए उपयोगकर्ता लिनक्स के संक्षिप्त अंग्रेज़ी कमांड्स जैसे `ls`, `pwd`, `mkdir`, `chmod` देखकर भ्रमित हो जाते हैं[span_6](start_span)[span_6](end_span)। वाक्-शेल एक द्विस्तरीय वास्तुकला पर आधारित है:
-1. **मूल तत्सम आधार (Pure Sanskrit/Hindi Core):** व्याकरण सम्मत एवं शुद्ध पारिभाषिक कमांड्स[span_7](start_span)[span_7](end_span)।
-2. **व्यावहारिक हिंदुस्तानी उपनाम (Hindustani Alias Layer):** दैनिक बोलचाल के सहज शब्द जो सीधे मूल कोर को निष्पादित करते हैं[span_8](start_span)[span_8](end_span)।
-
-उपयोगकर्ता अपनी रुचि के अनुसार शास्त्रीय तत्सम अथवा व्यावहारिक बोलचाल के शब्दों में से किसी का भी चयन कर सकते हैं[span_9](start_span)[span_9](end_span)।
-
+अक्सर नए उपयोगकर्ता लिनक्स के संक्षिप्त अंग्रेज़ी कमांड्स जैसे `ls`, `pwd`, `mkdir`, `chmod` देखकर भ्रमित हो जाते हैं। वाक्-शेल एक द्विस्तरीय वास्तुकला पर आधारित है:
+1. **मूल तत्सम आधार (Pure Sanskrit/Hindi Core):** व्याकरण सम्मत एवं शुद्ध पारिभाषिक कमांड्स।
+2. **व्यावहारिक हिंदुस्तानी उपनाम (Hindustani Alias Layer):** दैनिक बोलचाल के सहज शब्द जो सीधे मूल कोर को निष्पादित करते हैं।
+उपयोगकर्ता अपनी रुचि के अनुसार शास्त्रीय तत्सम अथवा व्यावहारिक बोलचाल के शब्दों में से किसी का भी चयन कर सकते हैं।
 ---
 
 ## 🚀 संस्थापन विधियाँ (Installation Methods)
@@ -26,7 +23,7 @@
 टर्मिनल में यह निर्देश निष्पादित करें:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Dev-Shivraj-26/vaak-shell/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Dev-Shivraj-26/vaak-shell/main/install.sh। bash
 ```
 विधि २: गिट क्लोन द्वारा संस्थापन (वैकल्पिक)
 यदि आप स्रोत कोड की संचिकाएँ देखना चाहते हैं:
@@ -121,6 +118,8 @@ source ~/.bashrc
 | कमिट इतिहास देखना | गिट_इतिहास | — | git log --oneline --graph --decorate |
 | शाखाओं की सूची देखना | गिट_शाखा | — | git branch |
 | शाखा परिवर्तन करना | गिट_संक्रमण <शाखा> | गिट_बदलो | git checkout |
+
+
 🛠️ निष्कासन (Uninstallation)
 यदि आप वाक्-शेल को हटाकर अपने टर्मिनल को पूर्ववत करना चाहते हैं:
 ```
