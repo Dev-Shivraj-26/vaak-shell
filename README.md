@@ -23,7 +23,7 @@
 टर्मिनल में यह निर्देश निष्पादित करें:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Dev-Shivraj-26/vaak-shell/main/install.sh। bash
+curl -fsSL https://raw.githubusercontent.com/Dev-Shivraj-26/vaak-shell/main/install.sh | bash
 ```
 विधि २: गिट क्लोन द्वारा संस्थापन (वैकल्पिक)
 यदि आप स्रोत कोड की संचिकाएँ देखना चाहते हैं:
